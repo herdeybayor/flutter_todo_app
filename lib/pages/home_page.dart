@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
             itemBuilder: (BuildContext context, int index) => TodoTile(
                   taskName: tasks[index],
-                  taskCompleted: false,
+                  taskCompleted: index.isEven,
                   onChanged: (value){},
                 ),
             separatorBuilder: (BuildContext context, int index) {
