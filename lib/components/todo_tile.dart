@@ -5,7 +5,7 @@ class TodoTile extends StatelessWidget {
   final String taskName;
   final bool? taskCompleted;
   final Function(bool?)? onChanged;
-  final Function() deleteTask;
+  final Function(BuildContext) deleteTask;
 
   const TodoTile({
     super.key,
@@ -28,7 +28,7 @@ class TodoTile extends StatelessWidget {
             foregroundColor: Colors.white,
           ),
           SlidableAction(
-            onPressed: (context) => deleteTask(),
+            onPressed: deleteTask,
             icon: Icons.delete,
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
