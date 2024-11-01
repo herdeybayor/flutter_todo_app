@@ -9,23 +9,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Map<String, dynamic>> tasks = [
-    {"taskName": "Make Tutorial", "taskCompleted": false},
-    {"taskName": "Buy Groceries", "taskCompleted": true},
-    {"taskName": "Walk the Dog", "taskCompleted": false},
-    {"taskName": "Read a Book", "taskCompleted": true},
-    {"taskName": "Write Code", "taskCompleted": false},
-    {"taskName": "Exercise", "taskCompleted": true},
-    {"taskName": "Cook Dinner", "taskCompleted": false},
-    {"taskName": "Clean the House", "taskCompleted": true},
-    {"taskName": "Call a Friend", "taskCompleted": false},
-    {"taskName": "Plan the Week", "taskCompleted": true}
+  final List<List<dynamic>> tasks = [
+    ["Make Tutorial", false],
+    ["Buy Groceries", true],
+    ["Walk the Dog", false],
+    ["Read a Book", true],
+    ["Write Code", false],
+    ["Exercise", true],
+    ["Cook Dinner", false],
+    ["Clean the House", true],
+    ["Call a Friend", false],
+    ["Plan the Week", true]
   ];
 
   Function(bool?) onChanged(int index) {
     return (value) {
       setState(() {
-        tasks[index]["taskCompleted"] = value;
+        tasks[index][1] = value;
       });
     };
   }
@@ -38,10 +38,11 @@ class _HomePageState extends State<HomePage> {
           title: const Text("TO DO"),
         ),
         body: ListView.separated(
+
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
             itemBuilder: (BuildContext context, int index) => TodoTile(
-                  taskName: tasks[index]["taskName"],
-                  taskCompleted: tasks[index]["taskCompleted"],
+                  taskName: tasks[index][0],
+                  taskCompleted: tasks[index][1],
                   onChanged: onChanged(index),
                 ),
             separatorBuilder: (BuildContext context, int index) {
