@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/components/button.dart';
 
 class CreateTaskDialog extends StatelessWidget {
   final TextEditingController controller = TextEditingController();
@@ -19,18 +20,19 @@ class CreateTaskDialog extends StatelessWidget {
           ),
         ),
       ),
+      actionsPadding: const EdgeInsets.all(16),
       actions: [
-        TextButton(
+        Button(
+          text: "Cancel",
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text("Cancel"),
         ),
-        TextButton(
+        Button(
+          text: "Create",
           onPressed: () {
             onSubmitted(controller.text);
           },
-          child: const Text("Create"),
         ),
       ],
     );
