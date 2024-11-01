@@ -13,14 +13,14 @@ class _HomePageState extends State<HomePage> {
   final List<List<dynamic>> tasks = [
     ["Make Tutorial", false],
     ["Buy Groceries", true],
-  //   ["Walk the Dog", false],
-  //   ["Read a Book", true],
-  //   ["Write Code", false],
-  //   ["Exercise", true],
-  //   ["Cook Dinner", false],
-  //   ["Clean the House", true],
-  //   ["Call a Friend", false],
-  //   ["Plan the Week", true]
+    //   ["Walk the Dog", false],
+    //   ["Read a Book", true],
+    //   ["Write Code", false],
+    //   ["Exercise", true],
+    //   ["Cook Dinner", false],
+    //   ["Clean the House", true],
+    //   ["Call a Friend", false],
+    //   ["Plan the Week", true]
   ];
 
   Function(bool?) onChanged(int index) {
@@ -64,6 +64,11 @@ class _HomePageState extends State<HomePage> {
                   taskName: tasks[index][0],
                   taskCompleted: tasks[index][1],
                   onChanged: onChanged(index),
+                  deleteTask: () {
+                    setState(() {
+                      tasks.removeAt(index);
+                    });
+                  },
                 ),
             separatorBuilder: (BuildContext context, int index) {
               return const SizedBox(
